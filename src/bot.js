@@ -74,7 +74,7 @@ client.on('ready', async () => {
         })
       }
     );
-    await sleep(FETCH_DELAY);
+    await sleep(parseInt(FETCH_DELAY));
   }
 })
 

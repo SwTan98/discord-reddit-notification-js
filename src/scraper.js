@@ -10,7 +10,7 @@ const r = new snoowrap({
 });
 
 async function getPost(subreddit) {
-  const submissions = await r.getSubreddit(subreddit).getNew({limit: FETCH_LIMIT});
+  const submissions = await r.getSubreddit(subreddit).getNew({limit: parseInt(FETCH_LIMIT)});
   const posts = [];
   submissions.map(submission => {
     const post = {
