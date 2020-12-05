@@ -1,7 +1,7 @@
 // require('dotenv').config();
 const snoowrap = require('snoowrap');
 
-const {REDDIT_ID, REDDIT_SECRET, REDDIT_REFRESH, USER_AGENT} = process.env;
+const {REDDIT_ID, REDDIT_SECRET, REDDIT_REFRESH, USER_AGENT, FETCH_LIMIT} = process.env;
 const r = new snoowrap({
   userAgent: USER_AGENT,
   clientId: REDDIT_ID,
@@ -10,7 +10,7 @@ const r = new snoowrap({
 });
 
 async function getPost(subreddit) {
-  const submissions = await r.getSubreddit(subreddit).getNew({limit: 10});
+  const submissions = await r.getSubreddit(subreddit).getNew({limit: FETCH_LIMIT});
   const posts = [];
   submissions.map(submission => {
     const post = {

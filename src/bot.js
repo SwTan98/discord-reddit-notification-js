@@ -4,7 +4,7 @@ const {getPost} = require('./scraper.js');
 const {insert: insertQuery, select: selectQuery} = require('./query.js');
 const Discord = require('discord.js');
 
-const {DISCORD_TOKEN, DISCORD_CHANNEL, SUBREDDIT} = process.env;
+const {DISCORD_TOKEN, DISCORD_CHANNEL, SUBREDDIT, FETCH_DELAY} = process.env;
 
 const config = {
   ssl: {
@@ -74,7 +74,7 @@ client.on('ready', async () => {
         })
       }
     );
-    await sleep(30000);
+    await sleep(FETCH_DELAY);
   }
 })
 
