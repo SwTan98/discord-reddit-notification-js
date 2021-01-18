@@ -16,7 +16,7 @@ async function getPost(subreddit) {
     const post = {
       id: submission.id,
       author: submission.author.name,
-      authorUrl: `https://reddit.com/${submission.author.name}`,
+      authorUrl: `https://reddit.com/u/${submission.author.name}`,
       title: submission.title,
       url: `https://reddit.com${submission.permalink}`,
       imageUrl: submission.url,
